@@ -34,6 +34,20 @@ lapply(c(),  pkgTest)
 #####################
 
 y <- c(105, 69, 86, 100, 82, 111, 104, 110, 87, 108, 87, 90, 94, 113, 112, 98, 80, 97, 95, 111, 114, 89, 95, 126, 98)
+student_iqs <- y
+
+# part 1: 90% CI
+n <- length(na.omit(student_iqs))
+sample_mean <- mean (student_iqs, na.rm = TRUE)
+sample_sd <- sd(student_iqs, na.rm = TRUE)
+z90 <- qnorm((1 - .90)/2, lower.tail = FALSE)
+lower_90 <- sample_mean- (z90 * (sample_sd/sqrt(n)))
+upper_90 <- sample_mean + (z90 * (sample_sd/sqrt(n)))
+confint90 <- c(lower_90, upper_90)
+
+# part 2: hypothesis test
+#Ho = 100 Ha > 100
+
 
 #####################
 # Problem 2
