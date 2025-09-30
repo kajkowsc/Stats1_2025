@@ -49,12 +49,10 @@ confint90 <- c(lower_90, upper_90)
 #Ho = 100, Ha > 100
 population_mean <- 100
 alpha_value <- 0.05
+df <- n - 1
 student_iq_data <- rnorm(n = 25, mean = 98.44, sd = 13.0928733795654)
-t.test(student_iq_data, mu = population_mean, alternative = "greater")
- 
- t <- (sample_mean - population_mean)/(sample_sd/sqrt(n))
-t
-pnorm(-0.5957439, lower.tail = FALSE)
+t_stat <- (sample_mean - population_mean) / (sample_sd / sqrt(n))
+pt(t_stat, df, lower.tail = FALSE)
 
 
 #####################
