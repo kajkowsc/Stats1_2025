@@ -80,36 +80,18 @@
 A school counselor was curious about the average of IQ of the students in her school and took a random sample of 25 students' IQ scores. The following is the data set:\\
 \vspace{.5cm}
 
-\lstinputlisting[language=R, firstline=36, lastline=36]{PS01.R}  
-
-\vspace{1cm}
-
 \begin{enumerate}
 	\item Find a 90\% confidence interval for the average student IQ in the school.\\
 	
-	y <- c(105, 69, 86, 100, 82, 111, 104, 110, 87, 108, 87, 90, 94, 113, 112, 98, 80, 97, 95, 111, 114, 89, 95, 126, 98)
-	student\_iqs <- y
-	n <- length(na.omit(student\_iqs))
-	sample\_mean <- mean (student\_iqs, na.rm = TRUE)
-	sample\_sd <- sd(student\_iqs, na.rm = TRUE)
-	z90 <- qnorm((1 - .90)/2, lower.tail = FALSE)
-	lower\_90 <- sample\_mean- (z90 * (sample\_sd/sqrt(n)))
-	upper\_90 <- sample\_mean + (z90 * (sample\_sd/sqrt(n)))
-	confint90 <- c(lower\_90, upper\_90)
-	
+\lstinputlisting[language=R, firstline=39, lastline=46]{PS01.R_Kajkowski.R}  
+
 	\item Next, the school counselor was curious  whether  the average student IQ in her school is higher than the average IQ score (100) among all the schools in the country.\\ 
-	
-	population\_mean <- 100
-	alpha\_value <- 0.05
-	df <- n - 1
-	student\_iq\_data <- rnorm(n = 25, mean = 98.44, sd = 13.0928733795654)
-	t\_stat <- (sample\_mean - population\_mean) / (sample\_sd / sqrt(n))
-	pt(t\_stat, df, lower.tail = FALSE)
 	
 	\noindent Using the same sample, conduct the appropriate hypothesis test with $\alpha=0.05$.
 \end{enumerate}
 
-\newpage
+\lstinputlisting[language=R, firstline=49, lastline=50]{PS01.R_Kajkowski.R}  
+
 
 	\section*{Question 2: Political Economy}
 
@@ -129,18 +111,26 @@ A school counselor was curious about the average of IQ of the students in her sc
 \vspace{.5cm}
 \noindent Explore the \texttt{expenditure} data set and import data into \texttt{R}.
 \vspace{.5cm}
-\lstinputlisting[language=R, firstline=54, lastline=54]{PS01.R}  
 \vspace{.5cm}
 \begin{itemize}
 
 \item
 Please plot the relationships among \emph{Y}, \emph{X1}, \emph{X2}, and \emph{X3}? What are the correlations among them (you just need to describe the graph and the relationships among them)?
 \vspace{.5cm}
+
+
+
 \item
 Please plot the relationship between \emph{Y} and \emph{Region}? On average, which region has the highest per capita expenditure on housing assistance?
 \vspace{.5cm}
+
+
+
 \item
 Please plot the relationship between \emph{Y} and \emph{X1}? Describe this graph and the relationship. Reproduce the above graph including one more variable \emph{Region} and display different regions with different types of symbols and colors.
+
+
+
 \end{itemize}
 
 
