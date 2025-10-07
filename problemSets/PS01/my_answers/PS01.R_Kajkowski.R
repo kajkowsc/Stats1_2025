@@ -99,15 +99,6 @@ plot(expenditure$X2,expenditure$X3,
      xlab = "X3 people per 1,000"
 )
 
-dev.off()
-
-#Y_X1: the data is looking at the relationship between per capita expenditure on shelter/housing assistance and per capita personal income in state. The graph shows that as the personal income increases, so does the expenditure on shelter and housing assistance, therefore, we can say there is a correlation. However, the points aren't perfectly lined up so, the correlation is weak to moderate. 
-#For the Y_X2 graph, the data is looking at the relationship between per capita expenditure on shelter/housing assistance and number of residents that are "financially insecure" per 100,000 residents. The graph shows that as "financially insecure" residents rise by 100,000, expenditure doesn't always increase as well. In certain areas were the expenditure is 300 and above there is more of a correlation, but lower than that the correlation is more scattered. 
-#For the Y_X3 graph, the data is looking at the relationship between per capita expenditure on shelter/housing assistance and number of people per thousand residing in urban areas in state. The graph shows that as the number of people residing increases, the expenditure also increases. The scatter plot shows a weak to moderate positive linear correlation. 
-#For the X1_X2 graph, 
-#For the X1_X3 graph,
-#For the X2_X3 graph, 
-
 #part 2: 
 
 par(mfrow = c(1,1))
@@ -116,8 +107,6 @@ boxplot(Y ~ Region, data = expenditure,
         xlab = "Region (1=Northeast, 2=North Central, 3=South, 4=West)",
         ylab = "Y: Housing Expenditure per Capita")
 
-#For this question, the best way to visualize the different averages for each region is by using box plots. By looking at the box plots, the West has the highest per capita expenditure on housing/shelter assistance. By looking at the dark line which symbolizes the mean/average, the West's mean is around 85, which is higher than the other regions' average values. 
-      
 #part 3: plot the relationship between Y and X1
   
 plot(expenditure$Y,expenditure$X1,
@@ -149,5 +138,4 @@ legend(
   inset = 0.0
   )
 
-#The relationship between per capita expenditure on shelter/housing assistance and per capita personal income per state shows a weak to moderate postivie linear relationship. Meaning, as the personal income increase, the expenditure on housing/shelter assistance also tend to increase 
       
