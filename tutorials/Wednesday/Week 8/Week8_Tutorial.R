@@ -36,7 +36,7 @@ lapply(c("wbstats", "ggplot2", "tidyverse", "stargazer", "readr"),  pkgTest)
 getwd()
 
 # Set working directory
-setwd("/Users/elkarag/Desktop/Teaching/Applied Stats I/Week 8")
+setwd("/Users/carolinekajkowski/Desktop/Trinity/Statistical Analysis I")
 
 # Agenda 
 # (a.) Gathering data
@@ -47,10 +47,11 @@ setwd("/Users/elkarag/Desktop/Teaching/Applied Stats I/Week 8")
 # (a.) Data wrangling ----------
 
 # What is an API?
-# https://medium.com/geekculture/a-beginners-guide-to-apis-9aa7b1b2e172
+#https://medium.com/geekculture/a-beginners-guide-to-apis-9aa7b1b2e172
+
 
 # Load data from World Bank API
-wb <- wb(country=c("AF","BRA","ITA","NGA","SWE","UGA"), 
+wb <- wb_data(country=c("AF","BRA","ITA","NGA","SWE","UGA"), 
          indicator=c("NY.GDP.PCAP.CD", # GDP per capita (current US$)
                      "SP.POP.TOTL", # Population, total 
                      "SE.SEC.ENRR", #  School enrollment, secondary (% gross) 
@@ -59,6 +60,9 @@ wb <- wb(country=c("AF","BRA","ITA","NGA","SWE","UGA"),
 
 # Data formats--wide and long
 # https://www.statology.org/long-vs-wide-data/
+
+wb <- wb %>% select(-iso2c)
+wb <- wb %>% select(date, country, iso3c, NY.GDP.PCAP.CD, SP.POP.TOTL, SE.SE C.ENRR, SH.SYN.MORT)
 
 # Reshape data from long to wide
 wb_re <- reshape(wb[, c("country","iso3c","date","indicatorID","value")], # df
