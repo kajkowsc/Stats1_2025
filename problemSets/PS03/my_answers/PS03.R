@@ -53,7 +53,7 @@ summary(biregress_1)
 plot(inc.sub$difflog, inc.sub$voteshare,
      main = "Plot of Difference in Spending and Vote Share",
      xlab = "Difference of Spending between incumbent and challenger", 
-     ylab = "", 
+     ylab = "Incumbent's Vote Share ", 
      abline(biregress_1, col = "red", lwd = 2))
 
 res_1 <- biregress_1$residuals 
@@ -77,9 +77,9 @@ summary(biregress_2)
 #F-statistic: 307.7 on 1 and 3191 DF,  p-value: < 2.2e-16
 
 plot(inc.sub$difflog, inc.sub$presvote,
-     main = "Plot of Difference in Spending and Vote Share of the Presidential Candidate",
+     main = "Plot of Difference in Spending and Vote Share of the Incumbent Presidential Candidate",
      xlab = "Difference of Spending between incumbent and challenger", 
-     ylab = "Presidential Vote Share", 
+     ylab = "Imcumbent Presidential Candidate Vote Share", 
      abline(biregress_2, col = "red", lwd = 2))
 
 res_2 <- biregress_2$residuals
@@ -104,8 +104,8 @@ summary(biregress_3)
 
 plot(inc.sub$presvote, inc.sub$voteshare,
      main = "Relationship Between Presidential and Incumbent Party Vote Share",
-     xlab = "Presidential Vote Share", 
-     ylab = "Incumbent Party Vote Share", 
+     xlab = "Imcumbent Presidential Candidate Vote Share", 
+     ylab = "Incumbent Party's Vote Share", 
      abline(biregress_3, col = "red", lwd = 2))
 
 #Yi = 0.441330 + 0.388018Xi + ei
@@ -122,13 +122,15 @@ summary(resid_regress)
 #(Intercept) -1.942e-18  1.299e-03    0.00        1    
 # res_2      2.569e-01  1.176e-02   21.84   <2e-16 ***
 #  ---
-#  Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 #Residual standard error: 0.07338 on 3191 degrees of freedom
 #Multiple R-squared:   0.13,	Adjusted R-squared:  0.1298 
 #F-statistic:   477 on 1 and 3191 DF,  p-value: < 2.2e-16
 
 plot(res_2, res_1,
+     main = "Plot of Residuals from Question 1 and 2",
+     xlab = "variation in presvote not explained by the difference in spending",
+     ylab = "variation in voteshare not explained by the difference in spending",
      abline(resid_regress, col = "red", lwd = 2))
 
 #Yi = -1.942e-18 + 0.2569Xi + ei
